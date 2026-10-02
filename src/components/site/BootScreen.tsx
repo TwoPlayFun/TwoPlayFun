@@ -6,8 +6,7 @@ import { Mark } from "@/components/Logo";
 import { BOOT_KEY } from "@/config/game";
 
 /**
- * Power-on screen, once per browser session: the two halves of the mark slide
- * together on black, then the screen washes to grey. Any key or tap skips it.
+ * Power-on screen, once per browser session: the mark drops in on black, then the screen washes to grey. Any key or tap skips it.
  * An inline script in the root layout hides it before paint on later visits.
  */
 export function BootScreen() {
@@ -58,14 +57,9 @@ export function BootScreen() {
     >
       <div className="boot-bg absolute inset-0" />
       <div className="relative flex flex-col items-center px-6 text-center">
-        <div className="relative size-[96px] sm:size-[120px]">
-          <span className="boot-half-l absolute inset-0">
-            <Mark size={120} className="size-full [&>g:last-child]:hidden" />
-          </span>
-          <span className="boot-half-r absolute inset-0">
-            <Mark size={120} className="size-full [&>g:first-child]:hidden" />
-          </span>
-        </div>
+        <span className="boot-mark boot-word block">
+          <Mark size={112} className="size-[88px] sm:size-[112px]" />
+        </span>
         <p className="boot-word mt-7 font-display text-[34px] font-bold uppercase tracking-[0.18em] sm:text-[44px]">Two Play</p>
         <p className="boot-sub mt-3 font-pixel text-[10px] uppercase tracking-[0.14em] sm:text-[11px]">Two player liquidity system</p>
         <p className="boot-sub mt-10 font-pixel text-[9px] uppercase tracking-[0.12em] opacity-70">Press any button</p>

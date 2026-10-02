@@ -7,7 +7,7 @@ import { BRAND, CHAIN as chain, TOKEN, explorerAddress, shortAddress } from "@/c
 import { formatUnits } from "@/lib/rpc";
 import { WALLET_CATALOG, catalogIcon } from "@/config/wallets";
 import { WALLETCONNECT_RDNS, useWallet, type DiscoveredWallet } from "@/components/wallet/WalletProvider";
-import { Mark } from "@/components/Logo";
+import { MarkTile } from "@/components/Logo";
 import { AlertIcon, ArrowUpRight, CheckIcon, ChevronDownIcon, CloseIcon, CopyIcon, LogOutIcon, WalletIcon } from "@/components/icons";
 
 /* ------------------------------------------------------------------ */
@@ -195,7 +195,7 @@ function WalletDialog({ onClose }: { onClose: () => void }) {
       <div className="relative flex max-h-[92dvh] w-full max-w-[440px] animate-sheet flex-col overflow-hidden rounded-t-[14px] border border-edge bg-shell text-ink shadow-[inset_1px_1px_0_#fff,0_4px_0_#8f8d86,0_40px_90px_-30px_rgba(0,0,0,0.6)] sm:animate-pop sm:rounded-[14px]">
         <div className="ridges flex items-center justify-between border-b border-plastic-3 bg-plastic px-5 py-4">
           <div className="flex items-center gap-2.5">
-            <Mark size={24} />
+            <MarkTile size={28} />
             <h2 id="wallet-dialog-title" className="font-display text-[20px] font-bold uppercase tracking-[0.04em]">
               Connect a wallet
             </h2>

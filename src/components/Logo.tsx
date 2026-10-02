@@ -2,32 +2,38 @@ import Link from "next/link";
 import { BRAND } from "@/config/brand";
 
 /*
- * The Two Play mark: one low-poly diamond split down the middle. The pale half
- * is Player 1, the charcoal half is Player 2; together they make one pair.
- * Temporary artwork. To swap in the owner's logo, change only `Mark` (and
- * re-export public/brand/mark.webp plus the icons in src/app).
+ * The Two Play mark (owner artwork, 2 Oct 2026): a white rounded-pixel "T".
+ * It is a single colour, so it is drawn as a CSS mask over `currentColor`
+ * and takes the colour of its text context. Source: public/brand/mark.webp
+ * (square, transparent). To swap the logo, replace that file.
  */
 export function Mark({ size = 28, className = "" }: { size?: number; className?: string }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 64 64" className={className} aria-hidden="true">
-      <g transform="translate(-1.5 0)">
-        <path d="M32 4 L4 32 L32 32 Z" fill="#f7f6f2" />
-        <path d="M4 32 L32 60 L32 32 Z" fill="#c6c4bd" />
-        <path d="M32 4 L4 32 L32 60 Z" fill="none" stroke="#7d7b74" strokeWidth="2" strokeLinejoin="round" />
-      </g>
-      <g transform="translate(1.5 0)">
-        <path d="M32 4 L60 32 L32 32 Z" fill="#3b3e47" />
-        <path d="M32 32 L60 32 L32 60 Z" fill="#1d1f25" />
-        <path d="M32 4 L60 32 L32 60 Z" fill="none" stroke="#14151a" strokeWidth="2" strokeLinejoin="round" />
-      </g>
-    </svg>
+    <span
+      aria-hidden="true"
+      className={`inline-block shrink-0 bg-current [mask:url(/brand/mark.webp)_center/contain_no-repeat] [-webkit-mask:url(/brand/mark.webp)_center/contain_no-repeat] ${className}`}
+      style={{ width: size, height: size }}
+    />
+  );
+}
+
+/** The mark in white on the owner's slate plate, like the app icon. */
+export function MarkTile({ size = 32, className = "" }: { size?: number; className?: string }) {
+  return (
+    <span
+      aria-hidden="true"
+      className={`inline-grid shrink-0 place-items-center rounded-[22%] bg-slate text-paper shadow-[inset_1px_1px_0_rgba(255,255,255,0.25),inset_-1px_-1px_0_rgba(0,0,0,0.25),0_2px_0_#8f8d86] ${className}`}
+      style={{ width: size, height: size }}
+    >
+      <Mark size={Math.round(size * 0.72)} />
+    </span>
   );
 }
 
 export function Lockup({ compact = false }: { compact?: boolean }) {
   return (
     <Link href="/" aria-label={`${BRAND.name} home`} className="flex shrink-0 items-center gap-2.5">
-      <Mark size={compact ? 28 : 32} />
+      <MarkTile size={compact ? 32 : 36} />
       <span className={`${compact ? "hidden sm:inline" : ""} font-display text-[19px] font-bold uppercase leading-none tracking-[0.06em] text-ink`}>
         Two<span className="text-ink-3">·</span>Play
       </span>

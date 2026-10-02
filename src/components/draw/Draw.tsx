@@ -90,7 +90,7 @@ function TicketCard({ entry, roll }: { entry: Entry; roll: boolean }) {
     <div className="crt overflow-hidden p-5 sm:p-6" data-ticket>
       <div className="flex items-center justify-between">
         <span className="flex items-center gap-2">
-          <Mark size={22} />
+          <Mark size={22} className="text-phos" />
           <span className="font-pixel text-[10px] uppercase text-phos-dim">{BRAND.symbol} draw</span>
         </span>
         <span className="font-pixel text-[10px] uppercase text-phos-dim">Block 1/1</span>

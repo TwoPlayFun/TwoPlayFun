@@ -12,6 +12,7 @@
   --color-plastic-3: #a9a7a0;
   --color-edge: #8f8d86;
   --color-paper: #f8f8f5;
+  --color-slate: #5b6773;
   --color-ink: #1e1f25;
   --color-ink-2: #474952;
   --color-ink-3: #64666e;
@@ -288,24 +289,21 @@ html[data-booted] .boot {
   background: #000;
   animation: boot-wash 2.4s ease-in forwards;
 }
-.boot-half-l {
-  animation: boot-left 1.1s cubic-bezier(0.2, 0.8, 0.2, 1) both;
-}
-.boot-half-r {
-  animation: boot-right 1.1s cubic-bezier(0.2, 0.8, 0.2, 1) both;
-}
 .boot-word,
 .boot-sub {
   color: #f2f2ee;
   animation: boot-text 2.4s ease forwards;
 }
-@keyframes boot-left {
-  from { transform: translateX(-60vw) rotate(-90deg); opacity: 0; }
+.boot-mark {
+  animation: boot-drop 1s steps(8, end) both, boot-text-mark 2.4s ease forwards;
+}
+@keyframes boot-drop {
+  from { transform: translateY(-40px) scale(0.6); opacity: 0; }
   to { transform: none; opacity: 1; }
 }
-@keyframes boot-right {
-  from { transform: translateX(60vw) rotate(90deg); opacity: 0; }
-  to { transform: none; opacity: 1; }
+@keyframes boot-text-mark {
+  0%, 45% { color: #f2f2ee; }
+  70%, 100% { color: #5b6773; }
 }
 @keyframes boot-wash {
   0%, 45% { background: #000; }
