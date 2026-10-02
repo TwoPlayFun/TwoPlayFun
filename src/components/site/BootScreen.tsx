@@ -51,7 +51,7 @@ export function BootScreen() {
   if (phase === "gone") return null;
   return (
     <div
-      className={`boot fixed inset-0 z-[100] grid place-items-center transition-opacity duration-400 ${phase === "fade" ? "pointer-events-none opacity-0" : "opacity-100"}`}
+      className={`boot fixed inset-0 z-[100] grid grid-cols-1 place-items-center transition-opacity duration-400 ${phase === "fade" ? "pointer-events-none opacity-0" : "opacity-100"}`}
       role="status"
       aria-label="Starting up"
       data-boot

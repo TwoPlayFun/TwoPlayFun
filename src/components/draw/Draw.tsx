@@ -141,8 +141,8 @@ export function Draw() {
   const eligible = elig.txs !== null && elig.wei !== null && elig.txs > 0 && BigInt(elig.wei) > 0n;
 
   return (
-    <div className="wrap mt-10 grid items-start gap-6 lg:grid-cols-[1fr_1fr]">
-      <ol className="grid gap-4">
+    <div className="wrap mt-10 grid grid-cols-1 items-start gap-6 lg:grid-cols-[1fr_1fr]">
+      <ol className="grid grid-cols-1 gap-4">
         <Step n={1} title="Insert a wallet" done={Boolean(address)} active>
           {address ? (
             <p>
@@ -182,7 +182,7 @@ export function Draw() {
         </Step>
       </ol>
 
-      <div className="grid gap-6">
+      <div className="grid grid-cols-1 gap-6">
         {entry ? (
           <>
             <TicketCard key={entry.code} entry={entry} roll={fresh} />
@@ -196,7 +196,7 @@ export function Draw() {
             </p>
           </>
         ) : (
-          <div className="crt grid min-h-[260px] place-items-center p-6 text-center">
+          <div className="crt grid grid-cols-1 min-h-[260px] place-items-center p-6 text-center">
             <div>
               <p className="font-pixel text-[12px] uppercase text-phos">No ticket in this slot</p>
               <p className="mt-2 text-[14px] text-phos-dim">Connect and sign to write one.</p>
@@ -206,7 +206,7 @@ export function Draw() {
 
         <section className="plate p-5 sm:p-6">
           <p className="label">Rules</p>
-          <ul className="mt-3 grid gap-3 text-[14.5px] text-ink-2">
+          <ul className="mt-3 grid grid-cols-1 gap-3 text-[14.5px] text-ink-2">
             <li className="flex gap-3">
               <TriGlyph className="mt-1 size-4 shrink-0" />
               <span>

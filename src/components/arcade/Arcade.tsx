@@ -21,7 +21,7 @@ export function Arcade() {
   const waiting = mine.filter((r) => !r.guest);
 
   return (
-    <div className="wrap mt-10 grid items-start gap-6 lg:grid-cols-[1.45fr_1fr]">
+    <div className="wrap mt-10 grid grid-cols-1 items-start gap-6 lg:grid-cols-[1.45fr_1fr]">
       <section aria-label="Pair Drop" className="plate p-4 sm:p-6">
         <div className="mb-4 flex items-center justify-between gap-3">
           <p className="font-display text-[20px] font-bold uppercase tracking-[0.04em]">Pair Drop</p>
@@ -37,10 +37,10 @@ export function Arcade() {
         </div>
       </section>
 
-      <div className="grid gap-6">
+      <div className="grid grid-cols-1 gap-6">
         <section className="plate p-5 sm:p-6">
           <p className="label">How to play</p>
-          <ol className="mt-3 grid gap-2.5 text-[15px] text-ink-2">
+          <ol className="mt-3 grid grid-cols-1 gap-2.5 text-[15px] text-ink-2">
             <li className="flex gap-3">
               <span className="num text-ink">01</span> Your tray has two halves, one for each player. Catch an ETH crystal, then a coin (or the other way round) to form a pair.
             </li>
@@ -74,7 +74,7 @@ export function Arcade() {
 
         <section className="plate p-5 sm:p-6">
           <p className="label">Cartridges</p>
-          <ul className="mt-3 grid gap-2">
+          <ul className="mt-3 grid grid-cols-1 gap-2">
             {CARTRIDGES.map(({ name, status, note, G, live }) => (
               <li key={name} className={`well flex items-start gap-3 p-3 ${live ? "" : "opacity-70"}`}>
                 <G className="mt-0.5 size-5 shrink-0" />

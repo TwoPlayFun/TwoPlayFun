@@ -10,7 +10,7 @@ export function SiteFooter() {
   return (
     <footer className="mt-24 border-t border-plastic-3 bg-[linear-gradient(180deg,#dcdad3,#cfcdc6)] shadow-[inset_0_1px_0_#f6f5f1]">
       <div className="ridges h-3 border-b border-plastic-3 opacity-70" aria-hidden />
-      <div className="wrap grid gap-10 py-12 md:grid-cols-[1.2fr_1fr] lg:grid-cols-[1.1fr_0.8fr_1.1fr]">
+      <div className="wrap grid grid-cols-1 gap-10 py-12 md:grid-cols-[1.2fr_1fr] lg:grid-cols-[1.1fr_0.8fr_1.1fr]">
         <div>
           <Lockup />
           <p className="mt-4 max-w-[34ch] text-[15px] text-ink-2">{BRAND.tagline}</p>
@@ -25,7 +25,7 @@ export function SiteFooter() {
             ) : null}
           </div>
         </div>
-        <nav aria-label="Footer" className="grid content-start gap-2">
+        <nav aria-label="Footer" className="grid grid-cols-1 content-start gap-2">
           <p className="label mb-1">Modes</p>
           <Link href="/" className="text-[15px] text-ink-2 hover:text-ink">Home</Link>
           {SITE_NAV.map((n) => (

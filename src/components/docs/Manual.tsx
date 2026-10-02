@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { BRAND, CHAIN, CONTRACTS } from "@/config/brand";
 import { BoxGlyph, CrossGlyph, RingGlyph, TriGlyph } from "@/components/Glyphs";
-import { Kv, RangeBars } from "@/components/ui";
+import { RangeBars } from "@/components/ui";
 import { DIFFICULTY, type Difficulty } from "@/lib/rooms";
 
 /* ---------- figures, drawn for this manual ---------- */
@@ -126,7 +126,7 @@ const PAGES: Page[] = [
     body: (
       <>
         <p>Both players choose the same price range before they are matched. Narrower ranges earn more of each trade but can drift out of range.</p>
-        <div className="mt-4 grid gap-2">
+        <div className="mt-4 grid grid-cols-1 gap-2">
           {(Object.keys(DIFFICULTY) as Difficulty[]).map((d) => (
             <div key={d} className="well flex items-center gap-3 p-3">
               <RangeBars bars={DIFFICULTY[d].bars} />
@@ -230,11 +230,17 @@ const PAGES: Page[] = [
           {BRAND.symbol} is the game&apos;s token on {CHAIN.name}. It is the first 2P asset in the lobby and the reward paid to paired seats. Its contract address is published at
           launch; the copy button in the header and the footer switches on then.
         </p>
-        <div className="mt-4">
+        <ul className="mt-4 grid grid-cols-1 gap-2">
           {CONTRACTS.map((c) => (
-            <Kv key={c.name} k={`${c.name} · ${c.role}`} v={c.address || "at launch"} />
+            <li key={c.name} className="well flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 p-3">
+              <span className="min-w-0">
+                <b className="font-mono text-[14px]">{c.name}</b>
+                <span className="block text-[13.5px] text-ink-3">{c.role}</span>
+              </span>
+              <span className="font-pixel text-[10px] uppercase text-ink-3 [overflow-wrap:anywhere]">{c.address || "At launch"}</span>
+            </li>
           ))}
-        </div>
+        </ul>
       </>
     ),
   },
@@ -308,13 +314,13 @@ export function Manual() {
   const used = PAGES.reduce((a, p) => a + p.blocks, 0);
 
   return (
-    <div className="wrap mt-10 grid items-start gap-6 lg:grid-cols-[340px_1fr]">
+    <div className="wrap mt-10 grid grid-cols-1 items-start gap-6 lg:grid-cols-[340px_1fr]">
       <nav aria-label="Manual chapters" className="plate p-3 lg:sticky lg:top-[88px]">
         <div className="flex items-center justify-between px-2 pb-2 pt-1">
           <p className="label !text-ink-2">Manual · slot 1</p>
           <p className="num text-[11.5px] text-ink-3">{used} blocks</p>
         </div>
-        <ul className="well grid gap-1 p-1.5" onKeyDown={onKey}>
+        <ul className="well grid grid-cols-1 gap-1 p-1.5" onKeyDown={onKey}>
           {PAGES.map((p, i) => (
             <li key={p.id}>
               <button

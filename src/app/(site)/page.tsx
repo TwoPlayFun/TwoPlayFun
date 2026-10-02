@@ -34,7 +34,7 @@ export default function Home() {
   return (
     <>
       {/* hero */}
-      <section className="wrap grid items-center gap-10 pt-10 sm:pt-14 lg:grid-cols-[1fr_1.02fr] lg:pt-16">
+      <section className="wrap grid grid-cols-1 items-center gap-10 pt-10 sm:pt-14 lg:grid-cols-[1fr_1.02fr] lg:pt-16">
         <div>
           <p className="eyebrow flex items-center gap-2">
             <span className="inline-block size-2 rounded-full bg-led shadow-[0_0_6px_var(--color-led)]" /> Co-op liquidity · {CHAIN.name}
@@ -80,7 +80,7 @@ export default function Home() {
             Read the manual
           </Link>
         </div>
-        <ol className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <ol className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {STEPS.map(({ n, title, body, G }) => (
             <li key={n} className="plate flex flex-col p-5">
               <div className="flex items-center justify-between">
@@ -95,7 +95,7 @@ export default function Home() {
       </section>
 
       {/* difficulty */}
-      <section className="wrap mt-24 grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center" aria-labelledby="diff">
+      <section className="wrap mt-24 grid grid-cols-1 gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center" aria-labelledby="diff">
         <div>
           <p className="eyebrow">Choose your difficulty</p>
           <h2 id="diff" className="h-display mt-3 text-[34px] sm:text-[46px]">
@@ -105,20 +105,20 @@ export default function Home() {
             Both players pick the same price range before they are matched. Tighter ranges earn more from each trade and ask more attention in return.
           </p>
         </div>
-        <div className="grid gap-3">
+        <div className="grid grid-cols-1 gap-3">
           {(Object.keys(DIFFICULTY) as Difficulty[]).map((d, i) => (
-            <div key={d} className="plate flex items-center gap-4 p-4 sm:p-5">
-              <span className="well grid size-12 shrink-0 place-items-center">
+            <div key={d} className="plate flex items-start gap-4 p-4 sm:gap-5 sm:p-5">
+              <span className="well flex h-14 w-16 shrink-0 items-center justify-center">
                 <RangeBars bars={DIFFICULTY[d].bars} />
               </span>
-              <div className="min-w-0">
-                <p className="flex flex-wrap items-baseline gap-x-2">
-                  <span className="font-display text-[20px] font-bold uppercase">{DIFFICULTY[d].label}</span>
-                  <span className="font-pixel text-[10px] uppercase text-ink-3">
-                    Level {i + 1} · {DIFFICULTY[d].range}
+              <div className="min-w-0 flex-1">
+                <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+                  <span className="font-display text-[20px] font-bold uppercase leading-tight">{DIFFICULTY[d].label}</span>
+                  <span className="rounded-[4px] border border-plastic-3 bg-shell-2 px-1.5 py-0.5 font-pixel text-[9.5px] uppercase leading-none text-ink-3">
+                    Lv {i + 1} · {DIFFICULTY[d].range}
                   </span>
-                </p>
-                <p className="mt-1 text-[14.5px] text-ink-2">{DIFFICULTY[d].note}</p>
+                </div>
+                <p className="mt-1.5 text-[14.5px] leading-relaxed text-ink-2">{DIFFICULTY[d].note}</p>
               </div>
             </div>
           ))}
@@ -158,7 +158,7 @@ export default function Home() {
             </h2>
           </div>
         </div>
-        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {SITE_NAV.map((m) => {
             const G = GLYPH[m.glyph];
             return (
@@ -180,7 +180,7 @@ export default function Home() {
         <h2 id="who" className="h-display mt-3 text-[34px] sm:text-[46px]">
           Built for two kinds of player, and then some
         </h2>
-        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {AUDIENCE.map((a) => (
             <div key={a.t} className="well p-5">
               <p className="font-display text-[19px] font-bold uppercase leading-tight">{a.t}</p>

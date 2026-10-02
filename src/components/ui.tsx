@@ -28,7 +28,7 @@ export function Seg<T extends string>({
   label: string;
 }) {
   return (
-    <div role="radiogroup" aria-label={label} className="well grid gap-1 p-1" style={{ gridTemplateColumns: `repeat(${options.length}, minmax(0, 1fr))` }}>
+    <div role="radiogroup" aria-label={label} className="well grid grid-cols-1 gap-1 p-1" style={{ gridTemplateColumns: `repeat(${options.length}, minmax(0, 1fr))` }}>
       {options.map((o) => {
         const on = o.value === value;
         return (
@@ -53,9 +53,9 @@ export function Seg<T extends string>({
 /** Seven-cell strip showing how much of the price line a range covers. */
 export function RangeBars({ bars, className = "" }: { bars: number[]; className?: string }) {
   return (
-    <span className={`inline-flex items-end gap-[3px] ${className}`} aria-hidden="true">
+    <span className={`inline-flex shrink-0 items-end gap-[2px] ${className}`} aria-hidden="true">
       {bars.map((b, i) => (
-        <i key={i} className={`block w-[7px] ${b ? "bg-ink" : "bg-plastic-3/60"}`} style={{ height: 6 + (3 - Math.abs(3 - i)) * 3 }} />
+        <i key={i} className={`block w-[5px] ${b ? "bg-ink" : "bg-plastic-3/70"}`} style={{ height: 5 + (3 - Math.abs(3 - i)) * 3 }} />
       ))}
     </span>
   );
@@ -63,10 +63,10 @@ export function RangeBars({ bars, className = "" }: { bars: number[]; className?
 
 export function Kv({ k, v, mono = true, screen = false }: { k: ReactNode; v: ReactNode; mono?: boolean; screen?: boolean }) {
   return (
-    <div className="flex items-baseline gap-2 py-1.5 text-[14px]">
-      <span className={`shrink-0 ${screen ? "text-phos-dim" : "text-ink-3"}`}>{k}</span>
+    <div className="flex min-w-0 items-baseline gap-2 py-1.5 text-[14px]">
+      <span className={`min-w-0 ${screen ? "text-phos-dim" : "text-ink-3"}`}>{k}</span>
       <span className={`min-w-4 flex-1 translate-y-[-3px] border-b border-dotted ${screen ? "border-phos-dim/40" : "border-plastic-3"}`} />
-      <span className={`shrink-0 text-right ${screen ? "text-phos" : "text-ink"} ${mono ? "num" : ""}`}>{v}</span>
+      <span className={`min-w-0 max-w-[60%] text-right [overflow-wrap:anywhere] ${screen ? "text-phos" : "text-ink"} ${mono ? "num" : ""}`}>{v}</span>
     </div>
   );
 }

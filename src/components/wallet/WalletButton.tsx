@@ -86,7 +86,7 @@ export function WalletPicker({ onConnected }: { onConnected?: () => void }) {
       {installed.length ? (
         <>
           <p className={group}>Detected in this browser</p>
-          <ul className="grid gap-1.5">
+          <ul className="grid grid-cols-1 gap-1.5">
             {installed.map((wallet) => (
               <li key={wallet.rdns}>
                 <button
@@ -137,7 +137,7 @@ export function WalletPicker({ onConnected }: { onConnected?: () => void }) {
       {more.length ? (
         <>
           <p className={`${group} pt-4`}>{mobile ? "Open this site in a wallet app" : `Not installed · supports ${chain.name}`}</p>
-          <ul className="grid gap-1.5">
+          <ul className="grid grid-cols-1 gap-1.5">
             {more.map((w) => {
               const href = mobile && w.deepLink ? w.deepLink(here) : w.install;
               const label = mobile && w.deepLink ? "Open" : "Install";

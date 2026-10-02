@@ -125,26 +125,26 @@ function MemoryCard({ rooms, selected, onSelect, me }: { rooms: Room[]; selected
               onClick={() => onSelect(room.id)}
               aria-pressed={selected === room.id}
               data-room={room.code}
-              className={`relative flex aspect-[5/4] min-w-0 flex-col justify-between rounded-[5px] border p-1.5 text-left transition-colors ${
+              className={`relative flex min-h-[78px] min-w-0 flex-col justify-between gap-1.5 rounded-[5px] border p-2 text-left transition-colors ${
                 selected === room.id ? "border-crs bg-screen text-phos" : "border-plastic-3 bg-[linear-gradient(180deg,#fbfaf7,#e2e0da)] text-ink hover:border-ink-2"
               }`}
             >
-              <span className="flex items-center justify-between gap-1">
+              <span className="flex min-w-0 items-center justify-between gap-1">
                 <span className="font-pixel text-[10px] leading-none">{room.code}</span>
                 <Led on={Boolean(room.guest)} blink={!room.guest} />
               </span>
-              <span className="flex items-center gap-1">
-                {room.host.side === "eth" ? <TriGlyph className="size-3" /> : <RingGlyph className="size-3" />}
-                <span className="truncate text-[10.5px] leading-tight opacity-80">{room.guest ? "Paired" : `Needs ${SIDE_LABEL[otherSide(room.host.side)].player}`}</span>
+              <span className="flex min-w-0 items-start gap-1">
+                {room.host.side === "eth" ? <TriGlyph className="mt-px size-3 shrink-0" /> : <RingGlyph className="mt-px size-3 shrink-0" />}
+                <span className="min-w-0 text-[11px] leading-tight opacity-80">{room.guest ? "Paired" : `Needs ${SIDE_LABEL[otherSide(room.host.side)].player}`}</span>
               </span>
-              {roomsOf([room], me).length ? <span className="absolute -right-1 -top-1 size-2.5 rounded-full border border-paper bg-crs" title="Your room" /> : null}
+              {roomsOf([room], me).length ? <span className="absolute bottom-1.5 right-1.5 size-2 rounded-full bg-crs" title="Your room" /> : null}
             </button>
           ) : (
             <button
               key={`free-${i}`}
               type="button"
               onClick={() => onSelect(null)}
-              className="flex aspect-[5/4] min-w-0 items-center justify-center rounded-[5px] border border-dashed border-plastic-3 font-pixel text-[9px] uppercase text-ink-3 hover:border-ink-3"
+              className="flex min-h-[78px] min-w-0 items-center justify-center rounded-[5px] border border-dashed border-plastic-3 font-pixel text-[9px] uppercase text-ink-3 hover:border-ink-3"
               aria-label="Free block: open a new room"
             >
               Free
@@ -205,7 +205,7 @@ function NewRoom({ onCreated }: { onCreated: (id: string) => void }) {
       <p className="label">New game</p>
       <h2 className="h-display mt-2 text-[28px]">Open a room</h2>
 
-      <div className="mt-5 grid gap-5">
+      <div className="mt-5 grid grid-cols-1 gap-5">
         <div>
           <p className="label mb-2">Your seat</p>
           <Seg
@@ -224,7 +224,7 @@ function NewRoom({ onCreated }: { onCreated: (id: string) => void }) {
         <div>
           <p className="label mb-2">Difficulty</p>
           <Seg label="Difficulty" value={difficulty} onChange={setDifficulty} options={(Object.keys(DIFFICULTY) as Difficulty[]).map((d) => ({ value: d, label: DIFFICULTY[d].label }))} />
-          <p className="mt-2 flex items-center gap-3 text-[13.5px] text-ink-2">
+          <p className="mt-2 flex items-start gap-3 text-[13.5px] text-ink-2">
             <RangeBars bars={DIFFICULTY[difficulty].bars} />
             <span>
               <b className="font-semibold text-ink">{DIFFICULTY[difficulty].range}.</b> {DIFFICULTY[difficulty].note}
@@ -310,8 +310,8 @@ function RoomView({ room, onClose }: { room: Room; onClose: () => void }) {
       <div className="flex items-start justify-between gap-3">
         <div className="min-w-0">
           <p className="label">Room {room.code}</p>
-          <h2 className="h-display mt-2 truncate text-[28px]">{room.name}</h2>
-          <p className="mt-2 flex items-center gap-2 text-[13.5px] text-ink-2">
+          <h2 className="h-display mt-2 text-[28px] [overflow-wrap:anywhere]">{room.name}</h2>
+          <p className="mt-2 flex flex-wrap items-center gap-x-2 gap-y-1 text-[13.5px] text-ink-2">
             <RangeBars bars={d.bars} /> {d.label} · {d.range} · {BRAND.ticker} / ETH
           </p>
         </div>
@@ -347,7 +347,7 @@ function RoomView({ room, onClose }: { room: Room; onClose: () => void }) {
           </Link>
         </div>
       ) : address && !isHost ? (
-        <div className="mt-6 grid gap-4" data-join>
+        <div className="mt-6 grid grid-cols-1 gap-4" data-join>
           <AmountField side={openSide} value={amount} onChange={setAmount} />
           {check.msg || error ? <p className={`text-[13.5px] ${error || !check.msg?.startsWith("Reading") ? "text-led-red" : "text-ink-3"}`}>{error ?? check.msg}</p> : null}
           <button type="button" className="btn btn-dark w-full" onClick={take} data-take-seat>
@@ -390,8 +390,8 @@ export function Lobby() {
   const open = rooms.filter((r) => !r.guest).length;
 
   return (
-    <div className="wrap mt-10 grid items-start gap-6 lg:grid-cols-[1.05fr_1fr]">
-      <div className="grid gap-6">
+    <div className="wrap mt-10 grid grid-cols-1 items-start gap-6 lg:grid-cols-[1.05fr_1fr]">
+      <div className="grid grid-cols-1 gap-6">
         <MemoryCard rooms={rooms} selected={room?.id ?? null} onSelect={setSelected} me={address} />
         <div className="plate grid grid-cols-3 divide-x divide-plastic-3 p-0 text-center">
           {[

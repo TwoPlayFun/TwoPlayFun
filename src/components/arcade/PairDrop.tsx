@@ -391,7 +391,7 @@ export function PairDrop({ onScore }: { onScore?: (score: number) => void }) {
   const hold = (dir: "left" | "right", on: boolean) => () => {
     game.current[dir] = on;
   };
-  const padBtn = "btn !min-h-[56px] !w-[64px] touch-none select-none !p-0 text-[20px]";
+  const padBtn = "btn !min-h-[56px] !w-[52px] touch-none select-none !p-0 text-[18px] sm:!w-[64px]";
 
   return (
     <div>
@@ -409,7 +409,7 @@ export function PairDrop({ onScore }: { onScore?: (score: number) => void }) {
           data-game
         />
       </div>
-      <div className="mt-5 flex items-center justify-between gap-3">
+      <div className="mt-5 flex flex-wrap items-center justify-between gap-3">
         <div className="flex gap-2">
           <button type="button" aria-label="Move left" className={padBtn} onPointerDown={hold("left", true)} onPointerUp={hold("left", false)} onPointerLeave={hold("left", false)} onPointerCancel={hold("left", false)}>
             ◀
@@ -424,7 +424,7 @@ export function PairDrop({ onScore }: { onScore?: (score: number) => void }) {
           </p>
           <p className="label mt-1">Best {best}</p>
         </div>
-        <button type="button" className="btn btn-dark !min-h-[56px]" onClick={start} data-start>
+        <button type="button" className="btn btn-dark !min-h-[56px] !px-4 sm:!px-[18px]" onClick={start} data-start>
           {phase === "play" ? "Pause" : phase === "pause" ? "Resume" : "Start"}
         </button>
       </div>
