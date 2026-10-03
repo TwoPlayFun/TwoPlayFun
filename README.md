@@ -3,7 +3,7 @@
 **Two players. One pool. Real earnings.**
 Co-op liquidity on Robinhood Chain where two players pool together.
 
-Website: [twoplay.fun](https://twoplay.fun) · X: [@twoplayfun](https://x.com/twoplayfun) · Source: [GitHub](https://github.com/TwoPlayFun/TwoPlayFun) · Token: `$TWOPLAY`
+Website: [twoplay.fun](https://twoplay.fun) · X: [@twoplay_fun](https://x.com/twoplay_fun) · Source: [GitHub](https://github.com/TwoPlayFun/TwoPlayFun) · Token: `$TWOPLAY`
 
 ## The problem
 
@@ -102,7 +102,7 @@ public/                logos and wallet icons (.webp)
 
 `$TWOPLAY` on Robinhood Chain: **published at launch.**
 
-The address is set in one place, `src/config/brand.ts` (`CA`). Until it holds a real `0x` address, the copy buttons in the header and footer stay disabled and read "Published at launch". Official announcements come only from [@twoplayfun](https://x.com/twoplayfun).
+The address is set in one place, `src/config/brand.ts` (`CA`). Until it holds a real `0x` address, the copy buttons in the header and footer stay disabled and read "Published at launch". Official announcements come only from [@twoplay_fun](https://x.com/twoplay_fun).
 
 ---
 

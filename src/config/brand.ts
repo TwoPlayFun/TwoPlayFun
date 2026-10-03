@@ -18,8 +18,8 @@ export const BRAND = {
   tagline: "Co-op liquidity on Robinhood Chain where two players pool together.",
   description:
     "Two Play turns liquidity into a co-op game on Robinhood Chain. Player 1 brings ETH, Player 2 brings the token, and together they open one pair that earns trading fees and rewards for both seats.",
-  x: "https://x.com/twoplayfun",
-  xHandle: "@twoplayfun",
+  x: "https://x.com/twoplay_fun",
+  xHandle: "@twoplay_fun",
   /** Public GitHub repository. Empty hides every GitHub link on the site. */
   github: "https://github.com/TwoPlayFun/TwoPlayFun" as string,
   ca: CA,
